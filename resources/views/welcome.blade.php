@@ -3,6 +3,7 @@
     
 
         <div class="container-fluid">
+            <!--begin header contain shopping Cart  -->
             <ul class="nav justify-content-end">
                 <li class="nav-item ">
                     <div class="dropdown dropleft">
@@ -31,6 +32,9 @@
                 </li>
                 
             </ul>
+            <!--end header contain shopping Cart  -->
+            
+            <!--begin div contain search input  -->
             <nav aria-label="breadcrumb">
                 
                 <ol class="breadcrumb justify-content-center">
@@ -49,14 +53,23 @@
                 
                 
             </nav>
+            <!--end div contain search input  -->
+            
+            <!--begin Cntainer  -->
             <div class="container-fluid">
+                
+                <!--begin user interaction message  -->
                 <div class="alert alert-success " id="success-message" style="text-align: center; display: none;" role="alert">
                     Order Added Sucessfully ...
                 </div>
                 <div class="alert alert-danger" id="error-message" style="text-align: center; display: none;" role="alert">
                     Something Error happen try again ...
                 </div>
+                <!--end user interaction message  -->
+                
+                
                 <div class="row">
+                    <!-- end sidebar-->
                     <div class="col-md-2 col-sm-12" >
                         <div class="card" >
                             <div class="">
@@ -142,13 +155,18 @@
                             </div>
                         </div>
                     </div>
+                    <!-- end sidebar-->
+                    
+                    <!-- begin items Content-->
                     <div class="col-md-10 col-sm-12">
                         <div class="card" id="content-items">
                             @include('items')
                         </div>
                     </div>
+                    <!-- end items Content-->
                 </div>
             </div>
+            <!--end Container  -->
         </div>
     
     @endsection

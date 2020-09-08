@@ -35,6 +35,11 @@ cp .env.example .env
 ```bash
 php artisan key:generate
 ```
+7. import Database
+```bash
+generate Mysql Database name="shopping_cart" user="root" password=""
+``` 
+feel free to change Database name or user or password  but ensure you add correct value in .env file
 
 Now you have a ready to use clone of the application.
 

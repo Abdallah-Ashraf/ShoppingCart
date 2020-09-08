@@ -1,4 +1,6 @@
-
+/*
+ * get vaues from rangeSlider to inputs represent min and max  range 
+ */
 function getValues(data){
     
     $("#endRange").val(data.to);
@@ -6,6 +8,10 @@ function getValues(data){
 }
 
 
+
+/*
+ * rangeSlider initial options to render correctly
+ */
 $(".js-range-slider").ionRangeSlider({
     skin: "round",
     step: 50,
@@ -22,6 +28,10 @@ $(".js-range-slider").ionRangeSlider({
 
 
 
+/*
+ * send request to load all Brand 's Items 
+ */
+
 $('.brand').on('click',function(){
     
     $.ajax({
@@ -34,6 +44,12 @@ $('.brand').on('click',function(){
       });
 });
 
+
+
+/*
+ * send request to load all category 's Items 
+ */
+
 $('.category').on("click",function(){
     $.ajax({
         type: "GET",
@@ -44,6 +60,11 @@ $('.category').on("click",function(){
         }
       });
 });
+
+
+/*
+ * send request  to load all items that it 's name match input value
+ */
 
 
 $('#searchInput').on('keyup',function(){
@@ -67,6 +88,11 @@ $('#searchInput').on('keyup',function(){
 });
 
 
+/*
+ * send request  to load all items that it 's price between choosen range
+ */
+
+
 $("#priceSearch").on("click",function(e){
     e.preventDefault();
     $.ajax({
@@ -79,9 +105,14 @@ $("#priceSearch").on("click",function(e){
       });
 });
 
-
+// varaible represent items added to shopping Cart to make order
 var shoppingCartItems=[];
 
+
+/*
+ * event add items to shoppingCart variable 
+ * and render them in Dom elements
+ */
 $(".shopping-cart-input").on('input',function(){
     var quantity=this.value;
     var id=$(this).attr("itemid");
@@ -104,7 +135,9 @@ $(".shopping-cart-input").on('input',function(){
     displayShoppingCart();
 });
 
-
+/* 
+ * *  render shopping Cart in Dom elements
+ */
 
 function  displayShoppingCart(){
     var element=$("#shopping-cart-list-group");
@@ -141,7 +174,9 @@ function  displayShoppingCart(){
 }
 
 
-
+/*
+ * event hande remove items from  Shopping Cart list
+ */
 
 $(document).on('close.bs.alert',"#alert-shoppingcart", function(){
     var id =$(this).attr('item');
@@ -154,6 +189,9 @@ $(document).on('close.bs.alert',"#alert-shoppingcart", function(){
 });
 
 
+/*
+ * send request to make order from shopping cart items
+ */
 
 $('#orderSubmit').on('click', function(){
     var total=$("#shopping-cart-total").text();

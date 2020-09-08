@@ -12,7 +12,10 @@ use App\Order_item;
 class HomeController extends Controller
 {
     //
-    
+    /*
+     * load items , categories and brands from models 
+     * return home view to display solution
+     */
     public function index() {
         $categories= Category::get();
         $brands=Brand::get();
@@ -20,16 +23,30 @@ class HomeController extends Controller
         return view('welcome', compact('categories','brands','items'));
     }
     
-    
+    /*
+     * get specific category 's items from model  by category id
+     * and return view to display them
+     */
     public function categoryItems($id) {
         $items= Category::find($id)->items;
         return view('items', compact('items'));
     }
     
+     /*
+     * get specific Brand 's items from model  by Brand id
+     * and return view to display them
+     */
+    
     public function BrandItems($id) {
         $items= Brand::find($id)->items;
         return view('items', compact('items'));
     }
+    
+    
+     /*
+     * get  items from model  that name match search value 
+     * and return view to display them
+     */
     
     public function searchItems($value) {
         if(!empty(trim($value))){
@@ -42,12 +59,24 @@ class HomeController extends Controller
     }
     
     
+     /*
+     * get  items from model  that name match given price range 
+     * and return view to display them
+     */
+    
+    
+    
     public function searchItemsByPrices($priceFrom,$priceTo) {
         $items=Item::whereBetween('price',[$priceFrom,$priceTo])->get();
         return view('items', compact('items'));
        
     }
     
+    
+     /*
+     * add given shopping Cart items as order by models 
+     * and return boolean to ensure sucess or failure of function
+     */
     
     public function addOrder(Request $request) {
         $data=$request->input("data"); 
