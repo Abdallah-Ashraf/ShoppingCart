@@ -37,7 +37,7 @@ php artisan key:generate
 ```
 7. import Database
 ```bash
-generate Mysql Database name="shopping_cart" user="root" password=""
+generate Mysql Database name="shopping_cart" user="root" password="" import shopping_cart.sql file from repository
 ``` 
 feel free to change Database name or user or password  but ensure you add correct value in .env file
 
